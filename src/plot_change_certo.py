@@ -5,6 +5,7 @@ Created on Wed Jun 26 15:47:16 2024
 @author: Maria Juliana Monte | mjmm.monte@gmail.com
 """
 
+from pathlib import Path
 import streamlit as st
 from bokeh.plotting import figure
 from bokeh.models import HoverTool, PanTool, WheelZoomTool, ResetTool, SaveTool
@@ -15,8 +16,15 @@ import pandas as pd
 
 #%%
 
+# Get the base directory
+BASE_DIR = Path(__file__).resolve().parent
+
+# Construct full path to the data file
+EXCEL_PATH = BASE_DIR / 'data' / 'PLOTS_GEORREF_ATUAL.xlsx'
+SHP_PATH = BASE_DIR / 'data' / 'MYFILE.shp'
+
 #Opening our trees file
-arvre = pd.read_excel('data/PLOTS_GEORREF_ATUAL.xlsx')
+arvre = pd.read_excel(EXCEL_PATH)
 arvre['COORD'] = arvre[['LON', 'LAT']].values.tolist()
 arvre['COORD'] = arvre['COORD'].apply(Point)
 arvre = gpd.GeoDataFrame(arvre, geometry='COORD')
@@ -45,7 +53,7 @@ arvre100 = gpd.GeoDataFrame(arvre100, geometry='COORD')
 #%%
 
 #Opening our experiments file
-exp=pd.read_excel('data/PLOTS_GEORREF_ATUAL.xlsx', sheet_name='exp')
+exp=pd.read_excel(EXCEL_PATH, sheet_name='exp')
 exp['COORD'] = exp[['LON', 'LAT']].values.tolist()
 exp['COORD'] = exp['COORD'].apply(Point)
 exp = gpd.GeoDataFrame(exp, geometry='COORD')
@@ -58,7 +66,7 @@ cod = exp.iloc[90:98,:]
 #%% ALL TREES
 
 #Creating our GeoJSON data
-geodf = gpd.read_file('data/shp/amzfaceplotscomp.shp')
+geodf = gpd.read_file(SHP_PATH)
 geodfJSON = geodf.to_json()
 
 #Creating our Plot
