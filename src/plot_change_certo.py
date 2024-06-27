@@ -15,8 +15,11 @@ import pandas as pd
 
 #%%
 
+arvrepath = "data/PLOTS_GEORREF_ATUAL.xlsx"
+shppath = "data/shp/amzfaceplotscomp.shp"
+
 #Opening our trees file
-arvre = pd.read_excel('../data/PLOTS_GEORREF_ATUAL.xlsx')
+arvre = pd.read_excel(arvrepath)
 arvre['COORD'] = arvre[['LON', 'LAT']].values.tolist()
 arvre['COORD'] = arvre['COORD'].apply(Point)
 arvre = gpd.GeoDataFrame(arvre, geometry='COORD')
@@ -45,7 +48,7 @@ arvre100 = gpd.GeoDataFrame(arvre100, geometry='COORD')
 #%%
 
 #Opening our experiments file
-exp=pd.read_excel('../data/PLOTS_GEORREF_ATUAL.xlsx', sheet_name='exp')
+exp=pd.read_excel(arvrepath, sheet_name='exp')
 exp['COORD'] = exp[['LON', 'LAT']].values.tolist()
 exp['COORD'] = exp['COORD'].apply(Point)
 exp = gpd.GeoDataFrame(exp, geometry='COORD')
@@ -58,7 +61,7 @@ cod = exp.iloc[90:98,:]
 #%% ALL TREES
 
 #Creating our GeoJSON data
-geodf = gpd.read_file('../data/shp/amzfaceplotscomp.shp')
+geodf = gpd.read_file(shppath)
 geodfJSON = geodf.to_json()
 
 #Creating our Plot
