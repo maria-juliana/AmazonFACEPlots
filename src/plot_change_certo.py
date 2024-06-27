@@ -15,13 +15,6 @@ import pandas as pd
 
 #%%
 
-# Get the base directory
-BASE_DIR = Path(__file__).resolve().parent
-
-# Construct full path to the data file
-EXCEL_PATH = BASE_DIR / 'data' / 'PLOTS_GEORREF_ATUAL.xlsx'
-SHP_PATH = BASE_DIR / 'data' / 'MYFILE.shp'
-
 #Opening our trees file
 arvre = pd.read_excel('data/PLOTS_GEORREF_ATUAL.xlsx')
 arvre['COORD'] = arvre[['LON', 'LAT']].values.tolist()
