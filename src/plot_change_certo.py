@@ -16,7 +16,7 @@ import pandas as pd
 #%%
 
 #Opening our trees file
-arvre = pd.read_excel('/data/PLOTS_GEORREF_ATUAL.xlsx')
+arvre = pd.read_excel('PLOTS_GEORREF_ATUAL.xlsx')
 arvre['COORD'] = arvre[['LON', 'LAT']].values.tolist()
 arvre['COORD'] = arvre['COORD'].apply(Point)
 arvre = gpd.GeoDataFrame(arvre, geometry='COORD')
@@ -45,7 +45,7 @@ arvre100 = gpd.GeoDataFrame(arvre100, geometry='COORD')
 #%%
 
 #Opening our experiments file
-exp=pd.read_excel('/data/PLOTS_GEORREF_ATUAL.xlsx', sheet_name='exp')
+exp=pd.read_excel('PLOTS_GEORREF_ATUAL.xlsx', sheet_name='exp')
 exp['COORD'] = exp[['LON', 'LAT']].values.tolist()
 exp['COORD'] = exp['COORD'].apply(Point)
 exp = gpd.GeoDataFrame(exp, geometry='COORD')
