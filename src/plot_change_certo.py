@@ -290,7 +290,7 @@ pie1 = arvre.iloc[0:197,:]
 pie1['sum'] = 1
 pie1 = pie1['sum'].groupby(pie1['Family']).sum()
 pie1 = pie1.reset_index().sort_values(by='sum', ascending=False)
-pie1 = pie1.iloc[0:11,:]
+pie1 = pie1.iloc[0:10,:]
 
 pie1['angle'] = pie1['sum'] / pie1['sum'].sum() * 2 * pi
 pie1['color'] = Category20c[len(pie1)]
@@ -310,7 +310,7 @@ pie2 = arvre.iloc[197:444,:]
 pie2['sum'] = 1
 pie2 = pie2['sum'].groupby(pie2['Family']).sum()
 pie2 = pie2.reset_index().sort_values(by='sum', ascending=False)
-pie2 = pie2.iloc[0:11,:]
+pie2 = pie2.iloc[0:10,:]
 
 pie2['angle'] = pie2['sum'] / pie2['sum'].sum() * 2 * pi
 pie2['color'] = Category20c[len(pie2)]
@@ -331,7 +331,7 @@ pie3 = arvre.iloc[444:674,:]
 pie3['sum'] = 1
 pie3 = pie3['sum'].groupby(pie3['Family']).sum()
 pie3 = pie3.reset_index().sort_values(by='sum', ascending=False)
-pie3 = pie3.iloc[0:11,:]
+pie3 = pie3.iloc[0:10,:]
 
 pie3['angle'] = pie3['sum'] / pie3['sum'].sum() * 2 * pi
 pie3['color'] = Category20c[len(pie3)]
@@ -351,7 +351,7 @@ pie4 = arvre.iloc[674:908,:]
 pie4['sum'] = 1
 pie4 = pie4['sum'].groupby(pie4['Family']).sum()
 pie4 = pie4.reset_index().sort_values(by='sum', ascending=False)
-pie4 = pie4.iloc[0:11,:]
+pie4 = pie4.iloc[0:10,:]
 
 pie4['angle'] = pie4['sum'] / pie4['sum'].sum() * 2 * pi
 pie4['color'] = Category20c[len(pie4)]
@@ -371,7 +371,7 @@ pie6 = arvre.iloc[908:1136,:]
 pie6['sum'] = 1
 pie6 = pie6['sum'].groupby(pie6['Family']).sum()
 pie6 = pie6.reset_index().sort_values(by='sum', ascending=False)
-pie6 = pie6.iloc[0:11,:]
+pie6 = pie6.iloc[0:10,:]
 
 pie6['angle'] = pie6['sum'] / pie6['sum'].sum() * 2 * pi
 pie6['color'] = Category20c[len(pie6)]
@@ -391,7 +391,7 @@ pie7 = arvre.iloc[1136:1360,:]
 pie7['sum'] = 1
 pie7 = pie7['sum'].groupby(pie7['Family']).sum()
 pie7 = pie7.reset_index().sort_values(by='sum', ascending=False)
-pie7 = pie7.iloc[0:11,:]
+pie7 = pie7.iloc[0:10,:]
 
 pie7['angle'] = pie7['sum'] / pie7['sum'].sum() * 2 * pi
 pie7['color'] = Category20c[len(pie7)]
