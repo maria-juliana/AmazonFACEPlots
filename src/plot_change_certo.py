@@ -419,6 +419,7 @@ if diameter_range == "All":
 elif diameter_range == "50":
     st.bokeh_chart(p50)
 elif diameter_range == "100":
+    st.write('Scroll down for more info!')
     st.bokeh_chart(p100)
     
     plot_info = st.selectbox('Select Plot', ["Plot 1", "Plot 2", "Plot 3", "Plot 4", "Plot 6", "Plot 7"])
